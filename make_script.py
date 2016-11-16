@@ -83,5 +83,6 @@ class Hooker():
 if __name__ == "__main__":
 	h = Hooker()
 	h.set_file_path("script.json")
+	print time.clock()
 	raw_input("Press Enter to Start Hooking")
 	h.hook_mouse()
