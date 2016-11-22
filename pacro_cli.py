@@ -1,6 +1,7 @@
+import json
 from os.path import exists
 from lib.validate import ValidateError
-from lib.pacro_exec import PacroExecutor
+from lib.pacro_core import PacroExecutor
 
 
 if __name__ == "__main__":
@@ -13,8 +14,9 @@ if __name__ == "__main__":
 		buf = f.read()
 	try:
 		op_list = json.loads(buf)
-	except:
-		raise ValidateError("Invalid JSON")
+	except Exception as e:
+		print "[*] JSON Parse Error : ", e
+		exit(1)
 
 	p = PacroExecutor(op_list)
 	try:
