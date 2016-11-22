@@ -14,17 +14,7 @@ class PacroExecutor():
 		while self.ip < self.op_len:
 			op = self.op_list[self.ip]
 
-			if op['op'] == "goto":
-				# Validate Arguments
-				if "target_id" not in op['arg']:
-					raise ValidateError("\"target_id\" not found : [%d]" % op['id'])
-				if not (0 < op['arg']['target_id'] <= self.op_len):
-					raise ValidateError("target_id [%d] out of range : [%d]" % op['id'])
-				# Normal
-				self.ip = op['arg']['target_id']
-				continue
-
-			elif op['op'] == "click":
+			if op['op'] == "click":
 				# Validate Arguments
 				if "x-pos" not in op['arg'] or "y-pos" not in op['arg']:
 					raise ValidateError("arguments not found : [%d]" % op['id'])

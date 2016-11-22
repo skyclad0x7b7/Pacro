@@ -65,6 +65,7 @@ class PacroGui(QtGui.QMainWindow):
 		return ",\n".join(ret)
 
 	def button_run_clicked(self):
+		# should be thread
 		executor = PacroExecutor(self.script)
 		executor.execute()
 
