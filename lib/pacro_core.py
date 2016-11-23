@@ -66,7 +66,7 @@ class PacroExecutor(QObject):
 
             self.ip += 1
 
-        self.finished_signal.emit(self.ip - 1) # it added 1 at the end of while.
+        self.finished_signal.emit(self.ip - 1) # because it added 1 at the end of while.
 
         if self.stop_flag:
             return False
