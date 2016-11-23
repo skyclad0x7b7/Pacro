@@ -37,17 +37,14 @@ class Hooker():
 			self.unhook_mouse()
 			self.save_scripts()
 			return True
+
 		print event.Position
 		cur_time = int(time.clock() * 1000)
-		print self.prev_time
-		print cur_time
 		if self.prev_time == 0:
 			self.prev_time = cur_time
 		else:
-			print "sleep append"
 			self.scripts.append(
 				{
-					"id":self.id,
 					"op":"sleep",
 					"arg":{
 						"ms": cur_time - self.prev_time
@@ -57,10 +54,8 @@ class Hooker():
 			self.id += 1
 			self.prev_time = cur_time
 
-		print "click append"
 		self.scripts.append(
 			{
-			"id":self.id,
 			"op":"click",
 			"arg":{
 				"x-pos":event.Position[0],
@@ -68,7 +63,6 @@ class Hooker():
 			}
 			}
 		)
-		self.id += 1
 		return True
 
 	def save_scripts(self):
@@ -83,6 +77,5 @@ class Hooker():
 if __name__ == "__main__":
 	h = Hooker()
 	h.set_file_path("script.json")
-	print time.clock()
 	raw_input("Press Enter to Start Hooking")
 	h.hook_mouse()

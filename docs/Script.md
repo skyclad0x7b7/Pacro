@@ -6,9 +6,8 @@ This document explains about writing scripts for Pacro.
 문서는 한국어나 영어로 기술합니다.  
 The documents should be written in Korean or English.  
 
-Pacro 스크립트는 JSON 형태로 저장되며 모든 명령어는 필수 키로 "id"와 "op"를 갖습니다.  
+Pacro 스크립트는 JSON 형태로 저장되며 모든 명령어는 필수 키로 "op"를 갖습니다.  
 "op"의 종류에 따라 "arg"는 있을 수도, 없을 수도 있습니다.  
-"id"는 스크립트마다 하나씩만 가지는 고유한 값으로 중복될 수 없으며 가능한 0부터 1씩 증가하며 오름차순으로 작성합니다.  
 특별한 상황이 아닌 이상 스크립트는 위에서부터 순서대로 실행됩니다.  
 
 id는 부호 없는 정수형이며 op는 문자열입니다.  
@@ -22,14 +21,12 @@ arg는 개수에 관계없이 항상 dict형을 유지합니다.
             "x-pos": 100,
             "y-pos": 100
         },
-        "id": 0,
         "op": "click"
     },
     {
         "arg": {
             "ms": 1000
         },
-        "id": 1,
         "op": "sleep"
     }
 ]

@@ -44,6 +44,9 @@ class Ui_MainWindow(object):
         self.button_run = QtGui.QPushButton(self.verticalLayoutWidget)
         self.button_run.setObjectName(_fromUtf8("button_run"))
         self.verticalLayout.addWidget(self.button_run)
+        self.button_stop = QtGui.QPushButton(self.verticalLayoutWidget)
+        self.button_stop.setObjectName(_fromUtf8("button_stop"))
+        self.verticalLayout.addWidget(self.button_stop)
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtGui.QMenuBar(MainWindow)
         self.menubar.setGeometry(QtCore.QRect(0, 0, 403, 21))
@@ -63,4 +66,5 @@ class Ui_MainWindow(object):
         self.list_script.headerItem().setText(2, _translate("MainWindow", "Arguments", None))
         self.button_open.setText(_translate("MainWindow", "Open", None))
         self.button_run.setText(_translate("MainWindow", "Run", None))
+        self.button_stop.setText(_translate("MainWindow", "Stop", None))
 
