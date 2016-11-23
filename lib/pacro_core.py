@@ -27,6 +27,10 @@ class PacroExecutor(QObject):
         self.stop_flag = False
 
     def execute(self):
+        # Initialize
+        self.ip = 0
+        self.stop_flag = False
+
         while self.ip < self.op_len and not self.stop_flag:
             # Send signal to PacroGui
             self.ip_signal.emit(self.ip)
@@ -63,6 +67,11 @@ class PacroExecutor(QObject):
             self.ip += 1
 
         self.finished_signal.emit(self.ip - 1) # it added 1 at the end of while.
+
+        if self.stop_flag:
+            return False
+
+        return True
 
     def stop(self):
         self.stop_flag = True

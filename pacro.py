@@ -17,6 +17,7 @@ class PacroGui(QtGui.QMainWindow):
         # Initialize variable
         self.executor = None
         self.item_list = []
+        self.repeat = False
 
         # Set list column width
         self.ui.list_script.setColumnWidth(0, 40)
@@ -28,6 +29,7 @@ class PacroGui(QtGui.QMainWindow):
         QtCore.QObject.connect(self.ui.button_run, QtCore.SIGNAL("clicked()"), self.button_run_clicked)
         QtCore.QObject.connect(self.ui.button_stop, QtCore.SIGNAL("clicked()"), self.button_stop_clicked)
         QtCore.QObject.connect(self.ui.checkbox_always_on_top, QtCore.SIGNAL("stateChanged(int)"), self.checkbox_always_on_top_clicked)
+        QtCore.QObject.connect(self.ui.checkbox_repeat, QtCore.SIGNAL("stateChanged(int)"), self.checkbox_repeat_clicked)
 
         # Disable buttons
         self.ui.button_run.setEnabled(False)
@@ -89,18 +91,25 @@ class PacroGui(QtGui.QMainWindow):
     def execute(self):
         # Thread Function
 
-        # Disable run button, enable stop button
+        # Disable run/open button, enable stop button
         self.ui.button_run.setEnabled(False)
+        self.ui.button_open.setEnabled(False)
         self.ui.button_stop.setEnabled(True)
 
         # Run the script
         self.executor = PacroExecutor(self.script)
         self.executor.ip_signal.connect(self.on_ip_changed)
         self.executor.finished_signal.connect(self.on_finished)
-        self.executor.execute()
+        
+        if self.executor.execute():
+            # If stop button not clicked
+            while self.repeat and self.executor.execute():
+                # until stop button clicked or repeat not checked
+                pass
 
-        # Enable run button, disable stop button
+        # Enable run button, disable stop/open button
         self.ui.button_run.setEnabled(True)
+        self.ui.button_open.setEnabled(True)
         self.ui.button_stop.setEnabled(False)
 
     def button_stop_clicked(self):
@@ -108,13 +117,20 @@ class PacroGui(QtGui.QMainWindow):
         self.executor.stop()
 
     def checkbox_always_on_top_clicked(self, value):
-        
+        """ When checkbox_always_on_top clicked """
         if value == 2:
             self.setWindowFlags(self.windowFlags() | QtCore.Qt.WindowStaysOnTopHint)
         elif value == 0:
             self.setWindowFlags(self.windowFlags() & ~QtCore.Qt.WindowStaysOnTopHint)
 
         self.show()
+
+    def checkbox_repeat_clicked(self, value):
+        """ When checkbox_repeat clicked """
+        if value == 2:
+            self.repeat = True
+        elif value == 0:
+            self.repeat = False
 
     @QtCore.pyqtSlot(int)
     def on_ip_changed(self, changed_ip):

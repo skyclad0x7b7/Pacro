@@ -54,7 +54,7 @@ class Ui_MainWindow(object):
         self.checkbox_always_on_top.setGeometry(QtCore.QRect(300, 370, 111, 16))
         self.checkbox_always_on_top.setObjectName(_fromUtf8("checkbox_always_on_top"))
         self.checkbox_repeat = QtGui.QCheckBox(self.centralwidget)
-        self.checkbox_repeat.setGeometry(QtCore.QRect(300, 70, 81, 16))
+        self.checkbox_repeat.setGeometry(QtCore.QRect(310, 70, 81, 16))
         self.checkbox_repeat.setObjectName(_fromUtf8("checkbox_repeat"))
         MainWindow.setCentralWidget(self.centralwidget)
 
@@ -65,7 +65,7 @@ class Ui_MainWindow(object):
         MainWindow.setWindowTitle(_translate("MainWindow", "Pacro", None))
         self.list_script.headerItem().setText(0, _translate("MainWindow", "Id", None))
         self.list_script.headerItem().setText(1, _translate("MainWindow", "Operation", None))
-        self.list_script.headerItem().setText(2, _translate("MainWindow", "Arguments", None))
+        self.list_script.headerItem().setText(2, _translate("MainWindow", "Argument", None))
         self.button_open.setText(_translate("MainWindow", "Open", None))
         self.button_run.setText(_translate("MainWindow", "Run", None))
         self.button_stop.setText(_translate("MainWindow", "Stop", None))

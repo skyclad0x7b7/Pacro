@@ -56,7 +56,7 @@
     </column>
     <column>
      <property name="text">
-      <string>Arguments</string>
+      <string>Argument</string>
      </property>
     </column>
    </widget>
@@ -115,7 +115,7 @@
    <widget class="QCheckBox" name="checkbox_repeat">
     <property name="geometry">
      <rect>
-      <x>300</x>
+      <x>310</x>
       <y>70</y>
       <width>81</width>
       <height>16</height>
