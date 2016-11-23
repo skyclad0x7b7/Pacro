@@ -27,12 +27,13 @@ class PacroGui(QtGui.QMainWindow):
         QtCore.QObject.connect(self.ui.button_open, QtCore.SIGNAL("clicked()"), self.button_open_clicked)
         QtCore.QObject.connect(self.ui.button_run, QtCore.SIGNAL("clicked()"), self.button_run_clicked)
         QtCore.QObject.connect(self.ui.button_stop, QtCore.SIGNAL("clicked()"), self.button_stop_clicked)
+        QtCore.QObject.connect(self.ui.checkbox_always_on_top, QtCore.SIGNAL("stateChanged(int)"), self.checkbox_always_on_top_clicked)
 
         # Disable buttons
         self.ui.button_run.setEnabled(False)
         self.ui.button_stop.setEnabled(False)
 
-    
+
     def button_open_clicked(self):
         """ When open button clicked """
         fd = QtGui.QFileDialog(self)
@@ -106,6 +107,15 @@ class PacroGui(QtGui.QMainWindow):
         """ When stop button clicked """
         self.executor.stop()
 
+    def checkbox_always_on_top_clicked(self, value):
+        
+        if value == 2:
+            self.setWindowFlags(self.windowFlags() | QtCore.Qt.WindowStaysOnTopHint)
+        elif value == 0:
+            self.setWindowFlags(self.windowFlags() & ~QtCore.Qt.WindowStaysOnTopHint)
+
+        self.show()
+
     @QtCore.pyqtSlot(int)
     def on_ip_changed(self, changed_ip):
         """ When ip changed, it changes the color of row """
@@ -130,5 +140,3 @@ if __name__ == "__main__":
     pacro_window = PacroGui()
     pacro_window.show()
     sys.exit(app.exec_())
-
-# @ Todo : MultiThreading
