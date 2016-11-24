@@ -1,39 +1,39 @@
 [
-	{
-		"op" : "sleep",
-		"arg" : {
-			"ms" : 1000
-		}
-	},
-	{
-		"op" : "sleep",
-		"arg" : {
-			"ms" : 1000
-		}
-	},
-	{
-		"op" : "sleep",
-		"arg" : {
-			"ms" : 1000
-		}
-	},
-	{
-		"op" : "sleep",
-		"arg" : {
-			"ms" : 1000
-		}
-	},
-	{
-		"op" : "sleep",
-		"arg" : {
-			"ms" : 1000
-		}
-	},
-	{
-		"op" : "click",
-		"arg" : {
-			"x-pos" : 100,
-			"y-pos" : 100
-		}
-	}
+    {
+        "op" : "sleep",
+        "arg" : {
+            "ms" : 1000
+        }
+    },
+    {
+        "op" : "sleep",
+        "arg" : {
+            "ms" : 1000
+        }
+    },
+    {
+        "op" : "sleep",
+        "arg" : {
+            "ms" : 1000
+        }
+    },
+    {
+        "op" : "sleep",
+        "arg" : {
+            "ms" : 1000
+        }
+    },
+    {
+        "op" : "sleep",
+        "arg" : {
+            "ms" : 1000
+        }
+    },
+    {
+        "op" : "click",
+        "arg" : {
+            "x-pos" : 100,
+            "y-pos" : 100
+        }
+    }
 ]
