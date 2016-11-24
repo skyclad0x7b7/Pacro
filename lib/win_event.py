@@ -1,3 +1,8 @@
+"""
+	Windows events such as click
+"""
+
+
 import time
 import os
 import win32api

@@ -1,3 +1,7 @@
+""" 
+    Pacro Command-Line Interface version. 
+"""
+
 import json
 from os.path import exists
 from lib.validate import ValidateError

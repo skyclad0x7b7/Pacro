@@ -1,3 +1,8 @@
+""" 
+    Pacro Graphic User Interface version. 
+    It uses PyQt4
+"""
+
 from os.path import isfile
 from threading import Thread
 import sys

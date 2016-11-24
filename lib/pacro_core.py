@@ -1,3 +1,7 @@
+"""
+    Core functions of Pacro
+"""
+
 from threading import Thread
 import json
 import time

@@ -1,3 +1,9 @@
+"""
+    Automatic script making.
+    It might be added to Pacro.py
+"""
+
+
 import time
 import pythoncom
 import json
