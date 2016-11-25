@@ -11,9 +11,13 @@ import json
 
 from lib.gui.Main import Ui_MainWindow
 from lib.pacro_core import PacroExecutor
-from PyQt4 import QtCore, QtGui, QtWebKit
+from PyQt4 import QtCore, QtGui
 
 class PacroGui(QtGui.QMainWindow):
+    # Initialize Signal
+    execute_started_signal  = QtCore.pyqtSignal()
+    execute_ended_signal    = QtCore.pyqtSignal()
+
     def __init__(self, parent = None):
         QtGui.QWidget.__init__(self, parent)
         self.ui = Ui_MainWindow()
@@ -35,6 +39,9 @@ class PacroGui(QtGui.QMainWindow):
         QtCore.QObject.connect(self.ui.button_stop, QtCore.SIGNAL("clicked()"), self.button_stop_clicked)
         QtCore.QObject.connect(self.ui.checkbox_always_on_top, QtCore.SIGNAL("stateChanged(int)"), self.checkbox_always_on_top_clicked)
         QtCore.QObject.connect(self.ui.checkbox_repeat, QtCore.SIGNAL("stateChanged(int)"), self.checkbox_repeat_clicked)
+
+        self.execute_started_signal.connect(self.execute_started)
+        self.execute_ended_signal.connect(self.execute_ended)
 
         # Disable buttons
         self.ui.button_run.setEnabled(False)
@@ -95,11 +102,7 @@ class PacroGui(QtGui.QMainWindow):
 
     def execute(self):
         # Thread Function
-
-        # Disable run/open button, enable stop button
-        self.ui.button_run.setEnabled(False)
-        self.ui.button_open.setEnabled(False)
-        self.ui.button_stop.setEnabled(True)
+        self.execute_started_signal.emit()   # Start Signal
 
         # Run the script
         self.executor = PacroExecutor(self.script)
@@ -112,10 +115,7 @@ class PacroGui(QtGui.QMainWindow):
                 # until stop button clicked or repeat not checked
                 pass
 
-        # Enable run button, disable stop/open button
-        self.ui.button_run.setEnabled(True)
-        self.ui.button_open.setEnabled(True)
-        self.ui.button_stop.setEnabled(False)
+        self.execute_ended_signal.emit()    # End Signal
 
     def button_stop_clicked(self):
         """ When stop button clicked """
@@ -136,6 +136,22 @@ class PacroGui(QtGui.QMainWindow):
             self.repeat = True
         elif value == 0:
             self.repeat = False
+
+    @QtCore.pyqtSlot() # Slot for PacroGui
+    def execute_started(self):
+        # Disable run/open button, enable stop button
+        self.ui.button_run.setEnabled(False)
+        self.ui.button_open.setEnabled(False)
+        self.ui.button_stop.setEnabled(True)
+
+    @QtCore.pyqtSlot() # Slot for PacroGui
+    def execute_ended(self):
+        # Enable run button, disable stop/open button
+        self.ui.button_run.setEnabled(True)
+        self.ui.button_open.setEnabled(True)
+        self.ui.button_stop.setEnabled(False)
+
+#########################################################################
 
     @QtCore.pyqtSlot(int) # Slot for PacroExecutor
     def on_ip_changed(self, changed_ip):

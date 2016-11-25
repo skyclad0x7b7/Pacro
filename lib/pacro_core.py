@@ -21,7 +21,6 @@ class PacroExecutor(QObject):
     ip_signal = pyqtSignal(int)
     finished_signal = pyqtSignal(int)
 
-
     def __init__(self, op_list, parent = None): 
         # Initialize PacroExecutor as QObject to emit signals
         super(PacroExecutor, self).__init__(parent)

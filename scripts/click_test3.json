@@ -1,54 +1,54 @@
 [
     {
         "arg": {
-            "x-pos": 2421, 
-            "y-pos": 329
+            "x-pos": 2566, 
+            "y-pos": 421
         }, 
         "op": "click"
     }, 
     {
         "arg": {
-            "x-pos": 2947, 
-            "y-pos": 376
+            "x-pos": 3049, 
+            "y-pos": 436
         }, 
         "op": "click"
     }, 
     {
         "arg": {
-            "ms": 232
+            "ms": 200
         }, 
         "op": "sleep"
     }, 
     {
         "arg": {
-            "x-pos": 2600, 
-            "y-pos": 680
+            "x-pos": 2753, 
+            "y-pos": 662
         }, 
         "op": "click"
     }, 
     {
         "arg": {
-            "ms": 208
+            "ms": 224
         }, 
         "op": "sleep"
     }, 
     {
         "arg": {
-            "x-pos": 2649, 
-            "y-pos": 326
+            "x-pos": 2772, 
+            "y-pos": 347
         }, 
         "op": "click"
     }, 
     {
         "arg": {
-            "ms": 185
+            "ms": 169
         }, 
         "op": "sleep"
     }, 
     {
         "arg": {
-            "x-pos": 2995, 
-            "y-pos": 569
+            "x-pos": 3090, 
+            "y-pos": 598
         }, 
         "op": "click"
     }, 
@@ -60,138 +60,125 @@
     }, 
     {
         "arg": {
-            "x-pos": 2621, 
-            "y-pos": 454
+            "x-pos": 2622, 
+            "y-pos": 437
         }, 
         "op": "click"
     }, 
     {
         "arg": {
-            "ms": 216
+            "ms": 200
         }, 
         "op": "sleep"
     }, 
     {
         "arg": {
-            "x-pos": 3049, 
-            "y-pos": 420
+            "x-pos": 3066, 
+            "y-pos": 392
         }, 
         "op": "click"
     }, 
     {
         "arg": {
-            "ms": 209
+            "ms": 329
         }, 
         "op": "sleep"
     }, 
     {
         "arg": {
             "x-pos": 2733, 
-            "y-pos": 661
+            "y-pos": 674
         }, 
         "op": "click"
     }, 
     {
         "arg": {
-            "ms": 208
+            "ms": 295
         }, 
         "op": "sleep"
     }, 
     {
         "arg": {
-            "x-pos": 2756, 
-            "y-pos": 366
+            "x-pos": 2772, 
+            "y-pos": 381
         }, 
         "op": "click"
     }, 
     {
         "arg": {
-            "ms": 200
+            "ms": 249
         }, 
         "op": "sleep"
     }, 
     {
         "arg": {
-            "x-pos": 3036, 
-            "y-pos": 613
+            "x-pos": 3094, 
+            "y-pos": 650
         }, 
         "op": "click"
     }, 
     {
         "arg": {
-            "ms": 215
+            "ms": 231
         }, 
         "op": "sleep"
     }, 
     {
         "arg": {
-            "x-pos": 2517, 
-            "y-pos": 453
+            "x-pos": 2695, 
+            "y-pos": 527
         }, 
         "op": "click"
     }, 
     {
         "arg": {
-            "ms": 208
+            "ms": 201
         }, 
         "op": "sleep"
     }, 
     {
         "arg": {
-            "x-pos": 3130, 
-            "y-pos": 396
+            "x-pos": 3162, 
+            "y-pos": 505
         }, 
         "op": "click"
     }, 
     {
         "arg": {
-            "ms": 208
+            "ms": 192
         }, 
         "op": "sleep"
     }, 
     {
         "arg": {
-            "x-pos": 2759, 
-            "y-pos": 697
+            "x-pos": 2826, 
+            "y-pos": 770
         }, 
         "op": "click"
     }, 
     {
         "arg": {
-            "ms": 209
+            "ms": 207
         }, 
         "op": "sleep"
     }, 
     {
         "arg": {
-            "x-pos": 2841, 
-            "y-pos": 318
+            "x-pos": 2693, 
+            "y-pos": 280
         }, 
         "op": "click"
     }, 
     {
         "arg": {
-            "ms": 200
+            "ms": 225
         }, 
         "op": "sleep"
     }, 
     {
         "arg": {
-            "x-pos": 3099, 
-            "y-pos": 678
-        }, 
-        "op": "click"
-    }, 
-    {
-        "arg": {
-            "ms": 215
-        }, 
-        "op": "sleep"
-    }, 
-    {
-        "arg": {
-            "x-pos": 2736, 
-            "y-pos": 511
+            "x-pos": 3052, 
+            "y-pos": 652
         }, 
         "op": "click"
     }
