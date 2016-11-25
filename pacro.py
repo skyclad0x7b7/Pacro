@@ -137,7 +137,7 @@ class PacroGui(QtGui.QMainWindow):
         elif value == 0:
             self.repeat = False
 
-    @QtCore.pyqtSlot(int)
+    @QtCore.pyqtSlot(int) # Slot for PacroExecutor
     def on_ip_changed(self, changed_ip):
         """ When ip changed, it changes the color of row """
         self.item_list[changed_ip].setTextColor(0, QtGui.QColor(255, 0, 0))
@@ -150,7 +150,7 @@ class PacroGui(QtGui.QMainWindow):
             self.item_list[changed_ip-1].setTextColor(1, QtGui.QColor(0, 0, 0))
             self.item_list[changed_ip-1].setTextColor(2, QtGui.QColor(0, 0, 0))
 
-    @QtCore.pyqtSlot(int)
+    @QtCore.pyqtSlot(int) # Slot for PacroExecutor
     def on_finished(self, final_ip):
         self.item_list[final_ip].setTextColor(0, QtGui.QColor(0, 0, 0))
         self.item_list[final_ip].setTextColor(1, QtGui.QColor(0, 0, 0))

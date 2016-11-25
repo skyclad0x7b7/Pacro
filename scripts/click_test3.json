@@ -1,0 +1,198 @@
+[
+    {
+        "arg": {
+            "x-pos": 2421, 
+            "y-pos": 329
+        }, 
+        "op": "click"
+    }, 
+    {
+        "arg": {
+            "x-pos": 2947, 
+            "y-pos": 376
+        }, 
+        "op": "click"
+    }, 
+    {
+        "arg": {
+            "ms": 232
+        }, 
+        "op": "sleep"
+    }, 
+    {
+        "arg": {
+            "x-pos": 2600, 
+            "y-pos": 680
+        }, 
+        "op": "click"
+    }, 
+    {
+        "arg": {
+            "ms": 208
+        }, 
+        "op": "sleep"
+    }, 
+    {
+        "arg": {
+            "x-pos": 2649, 
+            "y-pos": 326
+        }, 
+        "op": "click"
+    }, 
+    {
+        "arg": {
+            "ms": 185
+        }, 
+        "op": "sleep"
+    }, 
+    {
+        "arg": {
+            "x-pos": 2995, 
+            "y-pos": 569
+        }, 
+        "op": "click"
+    }, 
+    {
+        "arg": {
+            "ms": 215
+        }, 
+        "op": "sleep"
+    }, 
+    {
+        "arg": {
+            "x-pos": 2621, 
+            "y-pos": 454
+        }, 
+        "op": "click"
+    }, 
+    {
+        "arg": {
+            "ms": 216
+        }, 
+        "op": "sleep"
+    }, 
+    {
+        "arg": {
+            "x-pos": 3049, 
+            "y-pos": 420
+        }, 
+        "op": "click"
+    }, 
+    {
+        "arg": {
+            "ms": 209
+        }, 
+        "op": "sleep"
+    }, 
+    {
+        "arg": {
+            "x-pos": 2733, 
+            "y-pos": 661
+        }, 
+        "op": "click"
+    }, 
+    {
+        "arg": {
+            "ms": 208
+        }, 
+        "op": "sleep"
+    }, 
+    {
+        "arg": {
+            "x-pos": 2756, 
+            "y-pos": 366
+        }, 
+        "op": "click"
+    }, 
+    {
+        "arg": {
+            "ms": 200
+        }, 
+        "op": "sleep"
+    }, 
+    {
+        "arg": {
+            "x-pos": 3036, 
+            "y-pos": 613
+        }, 
+        "op": "click"
+    }, 
+    {
+        "arg": {
+            "ms": 215
+        }, 
+        "op": "sleep"
+    }, 
+    {
+        "arg": {
+            "x-pos": 2517, 
+            "y-pos": 453
+        }, 
+        "op": "click"
+    }, 
+    {
+        "arg": {
+            "ms": 208
+        }, 
+        "op": "sleep"
+    }, 
+    {
+        "arg": {
+            "x-pos": 3130, 
+            "y-pos": 396
+        }, 
+        "op": "click"
+    }, 
+    {
+        "arg": {
+            "ms": 208
+        }, 
+        "op": "sleep"
+    }, 
+    {
+        "arg": {
+            "x-pos": 2759, 
+            "y-pos": 697
+        }, 
+        "op": "click"
+    }, 
+    {
+        "arg": {
+            "ms": 209
+        }, 
+        "op": "sleep"
+    }, 
+    {
+        "arg": {
+            "x-pos": 2841, 
+            "y-pos": 318
+        }, 
+        "op": "click"
+    }, 
+    {
+        "arg": {
+            "ms": 200
+        }, 
+        "op": "sleep"
+    }, 
+    {
+        "arg": {
+            "x-pos": 3099, 
+            "y-pos": 678
+        }, 
+        "op": "click"
+    }, 
+    {
+        "arg": {
+            "ms": 215
+        }, 
+        "op": "sleep"
+    }, 
+    {
+        "arg": {
+            "x-pos": 2736, 
+            "y-pos": 511
+        }, 
+        "op": "click"
+    }
+]
