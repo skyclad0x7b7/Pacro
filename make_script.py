@@ -50,8 +50,11 @@ class Hooker():
 
         print event.Position
         cur_time = int(time.clock() * 1000)
+        print self.prev_time
         if self.prev_time == 0: # If it was first click
+            print "Cur : ", cur_time
             self.prev_time = cur_time
+            print "prev : ", self.prev_time
         else:
             self.scripts.append(
                 {
@@ -126,6 +129,7 @@ class MakeScript(QtGui.QMainWindow):
 
 
 if __name__ == "__main__":
+    time.clock()
     app = QtGui.QApplication(sys.argv)
     pacro_window = MakeScript()
     pacro_window.show()
