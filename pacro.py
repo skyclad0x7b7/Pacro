@@ -11,6 +11,7 @@ import json
 
 from lib.gui.Main import Ui_MainWindow
 from lib.pacro_core import PacroExecutor
+from lib.validate import ValidateError
 from PyQt4 import QtCore, QtGui
 
 class PacroGui(QtGui.QMainWindow):
@@ -106,8 +107,12 @@ class PacroGui(QtGui.QMainWindow):
 
         # Run the script
         self.executor = PacroExecutor(self.script)
+
+        # Connect Signal-Slot
+        self.executor.initialize_signal.connect(self.on_initialize)
         self.executor.ip_signal.connect(self.on_ip_changed)
         self.executor.finished_signal.connect(self.on_finished)
+        self.executor.error_signal.connect(self.on_error_occured)
         
         if self.executor.execute():
             # If stop button not clicked
@@ -152,6 +157,13 @@ class PacroGui(QtGui.QMainWindow):
         self.ui.button_stop.setEnabled(False)
 
 #########################################################################
+    @QtCore.pyqtSlot()
+    def on_initialize(self):
+        """ Initialize Item Color """
+        for item in self.item_list:
+            item.setTextColor(0, QtGui.QColor(0, 0, 0))
+            item.setTextColor(1, QtGui.QColor(0, 0, 0))
+            item.setTextColor(2, QtGui.QColor(0, 0, 0))
 
     @QtCore.pyqtSlot(int) # Slot for PacroExecutor
     def on_ip_changed(self, changed_ip):
@@ -171,6 +183,10 @@ class PacroGui(QtGui.QMainWindow):
         self.item_list[final_ip].setTextColor(0, QtGui.QColor(0, 0, 0))
         self.item_list[final_ip].setTextColor(1, QtGui.QColor(0, 0, 0))
         self.item_list[final_ip].setTextColor(2, QtGui.QColor(0, 0, 0))
+
+    @QtCore.pyqtSlot(str) # Slot for PacroExecutor
+    def on_error_occured(self, e):
+        self.show_messagebox('Error', 'Error Occured. \n%s' % e, QtGui.QMessageBox.Warning)
 
 if __name__ == "__main__":
     app = QtGui.QApplication(sys.argv)
