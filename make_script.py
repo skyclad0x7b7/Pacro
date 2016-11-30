@@ -46,7 +46,7 @@ class Hooker():
         if "mouse right down" == event.MessageName:
             self.end_flag = True
             self.unhook_mouse()
-            return True
+            return False
 
         print event.Position
         cur_time = int(time.clock() * 1000)
