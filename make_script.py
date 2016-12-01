@@ -32,49 +32,85 @@ class Hooker():
     def set_file_path(self, script_path):
         self.script_path = script_path
 
-    def hook_mouse(self):
-        self.hook_manager.SubscribeMouseAllButtonsDown(self.onclick)
+    def hooking(self):
+        # Mouse Hook
+        self.hook_manager.SubscribeMouseAllButtonsDown(self.onClick)
         self.hook_manager.HookMouse()
+
+        # Keyboard Hook
+        self.hook_manager.KeyDown = self.onKeyboardEvent
+        self.hook_manager.HookKeyboard()
+
         while not self.end_flag:
             pythoncom.PumpWaitingMessages()
         return self.scripts
 
-    def unhook_mouse(self):
+    def unhooking(self):
         self.hook_manager.UnhookMouse()
+        self.hook_manager.UnhookKeyboard()
     
-    def onclick(self, event):
+    def onClick(self, event):
         if "mouse right down" == event.MessageName:
             self.end_flag = True
-            self.unhook_mouse()
+            self.unhooking()
             return False
 
         print event.Position
-        cur_time = int(time.clock() * 1000)
-        print self.prev_time
-        if self.prev_time == 0: # If it was first click
-            print "Cur : ", cur_time
-            self.prev_time = cur_time
-            print "prev : ", self.prev_time
+        print event.Time
+        print "======================"
+
+        if self.prev_time == 0: # If it was first event
+            self.prev_time = event.Time
         else:
             self.scripts.append(
                 {
                     "op":"sleep",
                     "arg":{
-                        "ms": cur_time - self.prev_time
+                        "ms": event.Time - self.prev_time
                     }
                 }
             )
-            self.prev_time = cur_time
+            self.prev_time = event.Time
 
         self.scripts.append(
             {
-            "op":"click",
-            "arg":{
-                "x-pos":event.Position[0],
-                "y-pos":event.Position[1]
-            }
+                "op":"click",
+                "arg":{
+                    "x-pos":event.Position[0],
+                    "y-pos":event.Position[1]
+                }
             }
         )
+        return True
+
+    def onKeyboardEvent(self, event):
+
+        print event.Key
+        print event.Time
+        print "======================"
+
+        if self.prev_time == 0: # If it was first event
+            self.prev_time = event.Time
+        else:
+            self.scripts.append(
+                {
+                    "op":"sleep",
+                    "arg":{
+                        "ms": event.Time - self.prev_time
+                    }
+                }
+            )
+            self.prev_time = event.Time
+
+        self.scripts.append(
+            {
+                "op":"keyboard",
+                "arg":{
+                    "key-id":event.Key
+                }
+            }
+        )
+
         return True
 
 class MakeScript(QtGui.QMainWindow):
@@ -105,7 +141,7 @@ class MakeScript(QtGui.QMainWindow):
         self.execute_started_signal.emit()  # Start Signal
 
         h = Hooker()
-        script = h.hook_mouse()
+        script = h.hooking()
         self.script = json.dumps(script, sort_keys=True, indent=4)
 
         self.execute_ended_signal.emit()    # End Signal

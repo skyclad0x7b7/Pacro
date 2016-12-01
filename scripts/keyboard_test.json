@@ -1,0 +1,152 @@
+[
+    {
+        "arg": {
+            "key-id": "H"
+        }, 
+        "op": "keyboard"
+    }, 
+    {
+        "arg": {
+            "ms": 172
+        }, 
+        "op": "sleep"
+    }, 
+    {
+        "arg": {
+            "key-id": "E"
+        }, 
+        "op": "keyboard"
+    }, 
+    {
+        "arg": {
+            "ms": 187
+        }, 
+        "op": "sleep"
+    }, 
+    {
+        "arg": {
+            "key-id": "L"
+        }, 
+        "op": "keyboard"
+    }, 
+    {
+        "arg": {
+            "ms": 141
+        }, 
+        "op": "sleep"
+    }, 
+    {
+        "arg": {
+            "key-id": "L"
+        }, 
+        "op": "keyboard"
+    }, 
+    {
+        "arg": {
+            "ms": 234
+        }, 
+        "op": "sleep"
+    }, 
+    {
+        "arg": {
+            "key-id": "O"
+        }, 
+        "op": "keyboard"
+    }, 
+    {
+        "arg": {
+            "ms": 407
+        }, 
+        "op": "sleep"
+    }, 
+    {
+        "arg": {
+            "key-id": "Space"
+        }, 
+        "op": "keyboard"
+    }, 
+    {
+        "arg": {
+            "ms": 453
+        }, 
+        "op": "sleep"
+    }, 
+    {
+        "arg": {
+            "key-id": "W"
+        }, 
+        "op": "keyboard"
+    }, 
+    {
+        "arg": {
+            "ms": 125
+        }, 
+        "op": "sleep"
+    }, 
+    {
+        "arg": {
+            "key-id": "O"
+        }, 
+        "op": "keyboard"
+    }, 
+    {
+        "arg": {
+            "ms": 187
+        }, 
+        "op": "sleep"
+    }, 
+    {
+        "arg": {
+            "key-id": "R"
+        }, 
+        "op": "keyboard"
+    }, 
+    {
+        "arg": {
+            "ms": 141
+        }, 
+        "op": "sleep"
+    }, 
+    {
+        "arg": {
+            "key-id": "L"
+        }, 
+        "op": "keyboard"
+    }, 
+    {
+        "arg": {
+            "ms": 172
+        }, 
+        "op": "sleep"
+    }, 
+    {
+        "arg": {
+            "key-id": "D"
+        }, 
+        "op": "keyboard"
+    }, 
+    {
+        "arg": {
+            "ms": 515
+        }, 
+        "op": "sleep"
+    }, 
+    {
+        "arg": {
+            "key-id": "Rshift"
+        }, 
+        "op": "keyboard"
+    }, 
+    {
+        "arg": {
+            "ms": 328
+        }, 
+        "op": "sleep"
+    }, 
+    {
+        "arg": {
+            "key-id": "1"
+        }, 
+        "op": "keyboard"
+    }
+]

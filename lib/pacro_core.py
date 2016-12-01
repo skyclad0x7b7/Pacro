@@ -79,8 +79,10 @@ class PacroExecutor(QObject):
 
             else:
                 """ Unknown Operation """
-                self.error_signal.emit("Unknown Operation : %s" % op['op'])
-                return True
+                print "Unknown Operation : %s" % op['op']
+                # For Test
+                #self.error_signal.emit("Unknown Operation : %s" % op['op'])
+                #return True
 
             self.ip += 1
 
