@@ -65,6 +65,15 @@ class PacroExecutor(QObject):
                 # Normal
                 click(op['arg']['x-pos'], op['arg']['y-pos'], delay)
 
+            elif op['op'] == "keyboard":
+                # Validate Arguments
+                if "key" not in op['arg']:
+                    self.error_signal.emit("arguments not found : [%d]" % self.ip)
+                    return True
+
+                # Normal
+                keyboard_updown(op['arg']['key'])
+
             elif op['op'] == "sleep":
                 # Validate Arguments
                 if "ms" not in op['arg']:

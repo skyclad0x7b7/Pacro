@@ -107,7 +107,7 @@ class Hooker():
             {
                 "op":"keyboard",
                 "arg":{
-                    "key-id":event.Key
+                    "key":event.Key
                 }
             }
         )

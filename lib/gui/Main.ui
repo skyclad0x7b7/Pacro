@@ -44,6 +44,12 @@
       <height>381</height>
      </rect>
     </property>
+    <property name="indentation">
+     <number>0</number>
+    </property>
+    <attribute name="headerHighlightSections">
+     <bool>false</bool>
+    </attribute>
     <column>
      <property name="text">
       <string>Id</string>
