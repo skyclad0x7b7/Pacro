@@ -87,6 +87,7 @@ class Hooker():
 
         print event.Key
         print event.Time
+        print event.KeyID
         print "======================"
 
         if self.prev_time == 0: # If it was first event
