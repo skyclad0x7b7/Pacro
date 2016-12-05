@@ -19,11 +19,13 @@ and type the command like 'pip install pyHook-1.5.1-cp27-none-win32.whl' for 32b
     exit(1)
 
 from threading import Thread
+from lib.constant import *
 from lib.gui.MakeScript import Ui_MainWindow
 from PyQt4 import QtCore, QtGui
 
 class Hooker():
     def __init__(self):
+        self.finish_button = 'mouse right down'
         self.prev_time = 0
         self.scripts = []
         self.hook_manager = pyHook.HookManager()
@@ -33,6 +35,8 @@ class Hooker():
         self.script_path = script_path
 
     def hooking(self):
+        self.end_flag = False # Initialize
+
         # Mouse Hook
         self.hook_manager.SubscribeMouseAllButtonsDown(self.onClick)
         self.hook_manager.HookMouse()
@@ -46,14 +50,16 @@ class Hooker():
         return self.scripts
 
     def unhooking(self):
+        self.end_flag = True
         self.hook_manager.UnhookMouse()
         self.hook_manager.UnhookKeyboard()
     
     def onClick(self, event):
-        if "mouse right down" == event.MessageName:
-            self.end_flag = True
+        
+        if self.finish_button == event.MessageName:
+            
             self.unhooking()
-            return False
+            return True
 
         print event.Position
         print event.Time
@@ -84,6 +90,10 @@ class Hooker():
         return True
 
     def onKeyboardEvent(self, event):
+        
+        if self.finish_button == event.Key:
+            self.unhooking()
+            return False
 
         print event.Key
         print event.Time
@@ -123,9 +133,11 @@ class MakeScript(QtGui.QMainWindow):
         QtGui.QWidget.__init__(self, parent)
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
+        self.hooker = Hooker()
 
         # Set Signal
         QtCore.QObject.connect(self.ui.button_start, QtCore.SIGNAL("clicked()"), self.button_start_clicked)
+        QtCore.QObject.connect(self.ui.button_change_finish_button, QtCore.SIGNAL("clicked()"), self.button_change_finish_button_clicked)
 
         self.execute_started_signal.connect(self.execute_started)
         self.execute_ended_signal.connect(self.execute_ended)
@@ -137,25 +149,41 @@ class MakeScript(QtGui.QMainWindow):
         execute_thread.setDaemon(True)
         execute_thread.start()
 
+    def button_change_finish_button_clicked(self):
+        """ When Change Finish Button Clicked """
+        # Get Keys of Possible keyboard events
+        possible_items = VK_CODE.keys() 
+
+        # Append mouse events
+        possible_items.append("mouse right down")
+        possible_items.append("mouse left down")
+        possible_items.sort()
+
+        new_finish_button, ok = QtGui.QInputDialog.getItem(self, "Please select new finish button", "List of possible events", possible_items, 0, False)
+        if ok and new_finish_button:
+            self.ui.label_finish_button.setText(new_finish_button)
+            self.hooker.finish_button = new_finish_button
+
     def execute(self):
         # Thread Function
         self.execute_started_signal.emit()  # Start Signal
 
-        h = Hooker()
-        script = h.hooking()
+        script = self.hooker.hooking()
         self.script = json.dumps(script, sort_keys=True, indent=4)
 
         self.execute_ended_signal.emit()    # End Signal
 
     @QtCore.pyqtSlot() # Slot for MakeScript
     def execute_started(self):
-        # Disable Start button
+        # Disable Start button / Change Finish Button
         self.ui.button_start.setEnabled(False)
+        self.ui.button_change_finish_button.setEnabled(False)
 
     @QtCore.pyqtSlot() # Slot for MakeScript
     def execute_ended(self):
-        # Enable Start button
+        # Enable Start button / Change Finish Button
         self.ui.button_start.setEnabled(True)
+        self.ui.button_change_finish_button.setEnabled(True)
         # Saving file
         fd = QtGui.QFileDialog(self)
         newFile = fd.getSaveFileName()

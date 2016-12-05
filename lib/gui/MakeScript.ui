@@ -6,51 +6,64 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>329</width>
-    <height>96</height>
+    <width>332</width>
+    <height>84</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>MakeScript</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QLabel" name="label_kor">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>50</y>
-      <width>311</width>
-      <height>21</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>마우스 우클릭으로 끝낼 수 있습니다.</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_eng">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>70</y>
-      <width>301</width>
-      <height>16</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>You can finish it by right-clicking</string>
-    </property>
-   </widget>
    <widget class="QPushButton" name="button_start">
     <property name="geometry">
      <rect>
       <x>10</x>
       <y>10</y>
-      <width>311</width>
+      <width>161</width>
       <height>41</height>
      </rect>
     </property>
     <property name="text">
      <string>Start</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="button_change_finish_button">
+    <property name="geometry">
+     <rect>
+      <x>180</x>
+      <y>10</y>
+      <width>141</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Change Finish Button</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>50</x>
+      <y>60</y>
+      <width>131</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Current Finish Button : </string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_finish_button">
+    <property name="geometry">
+     <rect>
+      <x>180</x>
+      <y>60</y>
+      <width>131</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>mouse right down</string>
     </property>
    </widget>
   </widget>
