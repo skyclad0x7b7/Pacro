@@ -11,6 +11,7 @@ VK_CODE = {
     'Up'        :0x26,
     'Right'     :0x27,
     'Down'      :0x28,
+    'Delete'    :0x2E,
     '0'         :0x30,
     '1'         :0x31,
     '2'         :0x32,
